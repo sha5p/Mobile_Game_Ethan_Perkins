@@ -16,6 +16,9 @@ public class Level_Manager : MonoBehaviour
     [SerializeField] private GameObject levels;
 
     [SerializeField] private GameObject swiper;
+
+
+    [SerializeField] private GameObject music_settings;
     private void Start()
     {
         
@@ -26,16 +29,26 @@ public class Level_Manager : MonoBehaviour
         stickman.SetActive(false);
         anachor.SetActive(false);
         string_web.SetActive(false);
-        
+        music_settings.SetActive(false);
         main_menu.SetActive(false);
         levels.SetActive(true);
+        
     }
     private void ChangeScene()
     {
         SceneManager.LoadScene("Level 2");
     }
-
-        // Update is called once per frame
+    public void music_sett()
+    {
+        swiper.SetActive(false);
+        stickman.SetActive(false);
+        anachor.SetActive(false);
+        string_web.SetActive(false);
+        main_menu.SetActive(false);
+        levels.SetActive(false );
+        music_settings.SetActive(true);
+    }
+    // Update is called once per frame
     public void nextlevel()
     {
         Canvas.gameObject.SetActive(false);

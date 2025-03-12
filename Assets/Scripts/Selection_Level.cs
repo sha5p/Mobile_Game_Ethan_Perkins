@@ -10,7 +10,7 @@ public class Selection_Level : MonoBehaviour
     [SerializeField] private GameObject string_web;
     [SerializeField] private GameObject main_menu;
     [SerializeField] private GameObject levels;
-
+    [SerializeField] private GameObject music_settings;
 
     public Button_Level[] levelObjects;
 
@@ -42,6 +42,7 @@ public class Selection_Level : MonoBehaviour
         string_web.SetActive(true);
         swiper.SetActive(true);
         main_menu.SetActive(true);
+        music_settings.SetActive(false);
         levels.SetActive(false);
     }
 
