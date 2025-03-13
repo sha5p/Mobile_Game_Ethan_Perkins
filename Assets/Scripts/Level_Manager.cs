@@ -19,12 +19,21 @@ public class Level_Manager : MonoBehaviour
 
 
     [SerializeField] private GameObject music_settings;
+
+    Audio_Manager audio_manager;
+
+
+    private void Awake()
+    {
+        audio_manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
+    }
     private void Start()
     {
         
     }
     public void OnClickLevel()
     {
+        audio_manager.PlaySFX(audio_manager.ClickSound);
         swiper.SetActive(false);
         stickman.SetActive(false);
         anachor.SetActive(false);
@@ -40,6 +49,7 @@ public class Level_Manager : MonoBehaviour
     }
     public void music_sett()
     {
+        audio_manager.PlaySFX(audio_manager.ClickSound);
         swiper.SetActive(false);
         stickman.SetActive(false);
         anachor.SetActive(false);
@@ -51,6 +61,7 @@ public class Level_Manager : MonoBehaviour
     // Update is called once per frame
     public void nextlevel()
     {
+        audio_manager.PlaySFX(audio_manager.ClickSound);
         Canvas.gameObject.SetActive(false);
         //contiue.onClick.AddListener(ChangeScene);
         Canvas.gameObject.SetActive(true);

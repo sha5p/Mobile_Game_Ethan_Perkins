@@ -23,7 +23,11 @@ public class String : MonoBehaviour
     [SerializeField] private GameObject Player_script;
     private Sprite lastSprite;
 
-
+    Audio_Manager audio_manager;
+    private void Awake()
+    {
+        audio_manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
+    }
     private void Start()
     {
         Vector2 S = gameObject.GetComponent<SpriteRenderer>().sprite.bounds.size;
@@ -50,6 +54,7 @@ public class String : MonoBehaviour
     {
         if (collision.gameObject != null && collision.gameObject.name == "Cutter")
         {
+            audio_manager.PlaySFX(audio_manager.Swip_Sound);
             Player_script.gameObject.GetComponent<Player_Script>().cutting();
             Debug.Log("Triggering with: " + collision.gameObject.name);
             // Your custom trigger handling logic here

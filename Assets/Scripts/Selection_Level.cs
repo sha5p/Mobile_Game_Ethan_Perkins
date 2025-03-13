@@ -18,6 +18,12 @@ public class Selection_Level : MonoBehaviour
 
     public static int UnlockedLevel;
     public static int currLevel;
+
+    Audio_Manager audio_manager;
+    private void Awake()
+    {
+        audio_manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
@@ -37,6 +43,7 @@ public class Selection_Level : MonoBehaviour
     }
     public void OnClickBack()
     {
+        audio_manager.PlaySFX(audio_manager.ClickSound);
         stickman.SetActive(true);
         anachor.SetActive(true);
         string_web.SetActive(true);
@@ -48,6 +55,7 @@ public class Selection_Level : MonoBehaviour
 
     public void OnClickLevel(int levelNum)
     {
+        audio_manager.PlaySFX(audio_manager.ClickSound);
         currLevel = levelNum;
         SceneManager.LoadScene(currLevel+1);
     }

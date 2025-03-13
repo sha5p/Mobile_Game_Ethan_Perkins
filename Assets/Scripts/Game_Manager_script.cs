@@ -7,14 +7,20 @@ public class Game_Manager_script : MonoBehaviour
     [SerializeField] private GameObject finishLine;
     [SerializeField] private Camera_Follow camera_Follow;
     [SerializeField] private Player_Script player_Script;
+    
 
     [SerializeField] private GameObject player;
-    
+    Audio_Manager audio_manager;
 
     private bool won;
     private float sppedOnWin;
     private Vector3 initPos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        audio_manager= GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
+    }
     void Start()
     {
         Debug.Log(finishLine);
@@ -48,6 +54,7 @@ public class Game_Manager_script : MonoBehaviour
     }
     private void ResetGame()
     {
+        audio_manager.PlaySFX(audio_manager.death);
         player_Script.reset(initPos);
 
     }

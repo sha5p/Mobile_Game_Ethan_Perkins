@@ -40,8 +40,16 @@ public class Player_Script : MonoBehaviour
     [Header("Bool")]
     private bool sticked = false;
     public bool won = false;
-    
 
+
+
+    Audio_Manager audio_manager;
+
+
+    private void Awake()
+    {
+        audio_manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
+    }
     private void Start()
     {
         won = false;
@@ -147,7 +155,7 @@ public class Player_Script : MonoBehaviour
     {
         if (((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || ((Input.touchCount > 0) && (touches == 0))) && swinging==false)&& Pause_Menu.pause==false)
         {
-           
+            audio_manager.PlaySFX(audio_manager.RopeAttachSound);
 
 
             lineRenderer.enabled = true;

@@ -379,6 +379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 398992843}
+  currentTime: {fileID: 0}
+  time_script: {fileID: 0}
 --- !u!1 &197755360
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 226506784}
   elaspedtime: 0
+  playerScript: {fileID: 4387735792411091053}
 --- !u!114 &226506784
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Volume_Setting : MonoBehaviour
@@ -24,15 +25,46 @@ public class Volume_Setting : MonoBehaviour
     [SerializeField] private GameObject main_menu;
     [SerializeField] private GameObject levels;
     [SerializeField] private GameObject music_settings;
+
+
+    [Header("Game_Checks")]
+    [SerializeField] private GameObject pause_Text;
+    [SerializeField] private GameObject pause;
+
+    Audio_Manager audio_manager;
+    private void Awake()
+    {
+        audio_manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
+
+    }
     public void OnClickBack()
     {
-        stickman.SetActive(true);
-        anachor.SetActive(true);
-        string_web.SetActive(true);
-        swiper.SetActive(true);
-        main_menu.SetActive(true);
-        levels.SetActive(false);
+
+        audio_manager.PlaySFX(audio_manager.ClickSound);
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if(currentSceneName == "Main_Menu")
+        {
+            // If it is "mainmenu", activate the game objects
+            stickman.SetActive(true);
+            anachor.SetActive(true);
+            string_web.SetActive(true);
+            swiper.SetActive(true);
+            main_menu.SetActive(true);
+            levels.SetActive(false);
+        }
+        else
+        {
+            pause.SetActive(true);
+            pause_Text.SetActive(true);
+        }
         music_settings.SetActive(false);
+    }
+    public void OnMusicClicked()
+    {
+        audio_manager.PlaySFX(audio_manager.ClickSound);
+        pause.SetActive(false);
+        pause_Text.SetActive(false);
+        music_settings.SetActive(true);
     }
     private void Start()
     {
@@ -76,4 +108,6 @@ public class Volume_Setting : MonoBehaviour
         Mixer.SetFloat("Music", Mathf.Log10(volume)*20);
         PlayerPrefs.SetFloat("MusicVolume", volume);
     }
+
+
 }
