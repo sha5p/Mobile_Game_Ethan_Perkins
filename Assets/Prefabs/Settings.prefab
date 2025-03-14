@@ -1151,6 +1151,8 @@ MonoBehaviour:
   main_menu: {fileID: 0}
   levels: {fileID: 0}
   music_settings: {fileID: 3899056293762419135}
+  pause_Text: {fileID: 0}
+  pause: {fileID: 0}
 --- !u!1 &4036793320579930573
 GameObject:
   m_ObjectHideFlags: 0

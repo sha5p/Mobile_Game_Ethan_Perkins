@@ -90,6 +90,7 @@ public class Player_Script : MonoBehaviour
 
     private void Update()
     {
+        
         if(!won)
         {
             CheckInput();
@@ -138,7 +139,7 @@ public class Player_Script : MonoBehaviour
                 Vector3 lineRendererPoint = lineRenderer.GetPosition(point);
 
                 int num = anchor.transform.childCount - 1;
-                Debug.Log(num + "this is the num of children");
+                
                 Vector2 localPoint = anchor.transform.GetChild(num).InverseTransformPoint(lineRendererPoint);
                 edges.Add(localPoint);
             }
@@ -177,9 +178,26 @@ public class Player_Script : MonoBehaviour
             swinging = true;
             
         }
-        if (breakstring ==true)
+        if ((Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space) || (Input.touchCount == 0 && touches > 0)) && toggle_script_setting.control_mobile == 1)
         {
+            lineRenderer.enabled = false;
+            hJoint.enabled = false;
+            rb.gravityScale = gravityAir;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x * factorX, rb.linearVelocity.y + factorY); //ykyk
 
+            anchor.transform.GetChild(lastBestPosJoint).gameObject.GetComponent<String>().SetUnsticked();
+
+            if (bestPos == lastBestPosJoint)
+            {
+                anchor.transform.GetChild(bestPos).gameObject.GetComponent<String>().Selected();
+                anchor.transform.GetChild(lastBestPosJoint).gameObject.GetComponent<String>().Unselected();
+            }
+
+            rb.AddTorque(-rb.linearVelocity.magnitude);
+            sticked = false;
+
+            swinging = false;
+            
         }
 
 
@@ -205,7 +223,7 @@ public class Player_Script : MonoBehaviour
         sticked = false;
 
         swinging = false;
-        Debug.Log(sticked + "This is the stick varible checker should be false here");
+        
     }
     private void ChangeSprite()
     {

@@ -40,14 +40,15 @@ public class toggle_script_setting : MonoBehaviour
         }
 
     }
+
     void OnSwitch(bool on)
     {
         if(on)
         {
             
-            PlayerPrefs.SetInt("Control", 0);
-            control_mobile = PlayerPrefs.GetInt("Control", 0);
-
+            //PlayerPrefs.SetInt("Control", 0);
+           // control_mobile = PlayerPrefs.GetInt("Control", 0);
+            control_mobile = 1;
             text_control.text = "touch";
             uiHandleRectTransform.anchoredPosition = handlePosition * -1;
             backgroundImage.color = backgroundDefaultColor;
@@ -57,9 +58,9 @@ public class toggle_script_setting : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("Control", 0);
-            control_mobile = PlayerPrefs.GetInt("Control", 1);
-            control_mobile = 1;
+            //PlayerPrefs.SetInt("Control", 0);
+            //control_mobile = PlayerPrefs.GetInt("Control", 1);
+            control_mobile = 0;
             text_control.text = "swipe";
             uiHandleRectTransform.anchoredPosition=handlePosition; 
             backgroundImage.color = backgroundDefaultColor;
@@ -71,6 +72,10 @@ public class toggle_script_setting : MonoBehaviour
     void Start()
     {
         control_mobile = PlayerPrefs.GetInt("Control", 0);
+        if (control_mobile ==1)
+        {
+            OnSwitch(true);
+        }
     }
 
     // Update is called once per frame

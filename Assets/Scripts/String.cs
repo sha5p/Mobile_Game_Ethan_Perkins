@@ -37,12 +37,12 @@ public class String : MonoBehaviour
         line = gameObject.transform.GetChild(1).gameObject;
         if (boxCollider == null)
         {
-            Debug.LogError("BoxCollider is not assigned!");
+            
         }
 
         if (spriteRenderer.sprite == null)
         {
-            Debug.LogError("SpriteRenderer is not assigned!");
+            
         }
 
         if (boxCollider != null && spriteRenderer != null)
@@ -52,7 +52,8 @@ public class String : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject != null && collision.gameObject.name == "Cutter")
+        Debug.Log("toggle_script_setting.control_mobile" + toggle_script_setting.control_mobile);
+        if ((collision.gameObject != null && collision.gameObject.name == "Cutter")&& toggle_script_setting.control_mobile == 0)
         {
             audio_manager.PlaySFX(audio_manager.Swip_Sound);
             Player_script.gameObject.GetComponent<Player_Script>().cutting();

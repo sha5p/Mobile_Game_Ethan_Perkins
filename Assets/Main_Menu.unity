@@ -4405,10 +4405,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 672112027670159230, guid: b85cde7caf113d74b87af21bee1e4f8e, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2052968969999369007, guid: b85cde7caf113d74b87af21bee1e4f8e, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668875273648143300, guid: b85cde7caf113d74b87af21bee1e4f8e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3668875273648143300, guid: b85cde7caf113d74b87af21bee1e4f8e, type: 3}
+      propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6883850055040373428, guid: b85cde7caf113d74b87af21bee1e4f8e, type: 3}
