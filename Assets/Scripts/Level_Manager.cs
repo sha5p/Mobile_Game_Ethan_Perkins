@@ -25,6 +25,7 @@ public class Level_Manager : MonoBehaviour
 
     private void Awake()
     {
+
         audio_manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
     }
     private void Start()

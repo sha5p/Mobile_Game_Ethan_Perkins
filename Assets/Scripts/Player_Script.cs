@@ -136,8 +136,10 @@ public class Player_Script : MonoBehaviour
             for (int point = 0; point < lineRenderer.positionCount; point++)
             {
                 Vector3 lineRendererPoint = lineRenderer.GetPosition(point);
-                
-                Vector2 localPoint = anchor.transform.GetChild(0).InverseTransformPoint(lineRendererPoint);
+
+                int num = anchor.transform.childCount - 1;
+                Debug.Log(num + "this is the num of children");
+                Vector2 localPoint = anchor.transform.GetChild(num).InverseTransformPoint(lineRendererPoint);
                 edges.Add(localPoint);
             }
 

@@ -22,6 +22,8 @@ public class Contiue : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        Selection_Level.currLevel = int.Parse(currentSceneName)-1;
         Canvas.gameObject.SetActive(false);
     }
 
@@ -47,6 +49,7 @@ public class Contiue : MonoBehaviour
     }
     public void nextlevel()
     {
+        Debug.Log(Selection_Level.currLevel);
 
         if (Selection_Level.currLevel == Selection_Level.UnlockedLevel)
         {

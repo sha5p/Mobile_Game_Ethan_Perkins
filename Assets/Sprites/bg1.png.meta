@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a9cdc66862acbea4a9c25c759db4e8d3
+guid: 46c4460e7db987e47b4549f5f048cd64
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1032609768369048957
-    second: LevelProgressBold_0
+      213: -1768854372134492381
+    second: bg1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LevelProgressBold_0
+      name: bg1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 921
-        height: 256
+        width: 343
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d7d4c330d11945e00800000000000000
-      internalID: 1032609768369048957
+      spriteID: 327e6810254c377e0800000000000000
+      internalID: -1768854372134492381
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      LevelProgressBold_0: 1032609768369048957
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
