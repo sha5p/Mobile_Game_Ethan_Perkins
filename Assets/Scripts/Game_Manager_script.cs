@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,14 +8,18 @@ public class Game_Manager_script : MonoBehaviour
     [SerializeField] private GameObject finishLine;
     [SerializeField] private Camera_Follow camera_Follow;
     [SerializeField] private Player_Script player_Script;
-    
 
+    [SerializeField] private GameObject Coin_Gameobject;
     [SerializeField] private GameObject player;
     Audio_Manager audio_manager;
 
     private bool won;
     private float sppedOnWin;
     private Vector3 initPos;
+
+
+    public int coinCount;
+    public static int Saved_coinscount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
@@ -23,6 +28,19 @@ public class Game_Manager_script : MonoBehaviour
     }
     void Start()
     {
+
+
+        string sceneName = SceneManager.GetActiveScene().name;
+        Saved_coinscount = PlayerPrefs.GetInt(sceneName+"CollectedCoins", 0);
+        if (Saved_coinscount >= 1)
+        {
+            Destroy(Coin_Gameobject);
+        }
+        for (int i = 0; i <= 12; i++) // Loop from scene "0" to "12"
+        {
+            int sceneCoins = PlayerPrefs.GetInt(i.ToString() + "CollectedCoins", 0); // Get the coins for this scene
+            coinCount = coinCount + sceneCoins; // Add the coins to the total
+        }
         Debug.Log(finishLine);
         player_Script = player_Script.GetComponent<Player_Script>();
         initPos= player_Script.transform.position;

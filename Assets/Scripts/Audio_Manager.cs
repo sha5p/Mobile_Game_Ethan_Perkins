@@ -7,7 +7,7 @@ public class Audio_Manager : MonoBehaviour
     [SerializeField] public AudioClip ClickSound;
     [SerializeField] public AudioClip music;
     [SerializeField] public AudioClip death;
-
+    [SerializeField] public AudioClip coin;
 
     [Header("Audio Source")]
     [SerializeField] private AudioSource SFX_source;

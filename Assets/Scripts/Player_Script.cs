@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.SceneManagement;
 public class Player_Script : MonoBehaviour
 {
 
@@ -29,6 +30,8 @@ public class Player_Script : MonoBehaviour
     private Vector3 actualJointPos;
     public bool breakstring;
     private bool swinging;
+    private Game_Manager_script coins;
+
 
     [Header ("Public variable")]
     [SerializeField] private float gravityRope =2f;
@@ -60,7 +63,7 @@ public class Player_Script : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lineRenderer = GetComponent<LineRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        coins = GameObject.Find("GameManager").GetComponent<Game_Manager_script>();
         // initialize
         lastBestPosJoint = 0;
         lastBestPosSelected = 0;
@@ -254,6 +257,19 @@ public class Player_Script : MonoBehaviour
         rb.AddForce(rb.transform.right * speedWin * Time.fixedDeltaTime, ForceMode2D.Impulse);
         Level_Manager.gameObject.GetComponent<Contiue>().nextlevel();
 
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            string sceneName = SceneManager.GetActiveScene().name;
+            PlayerPrefs.SetInt(sceneName + "CollectedCoins", 1);
+            PlayerPrefs.Save(); 
+
+            audio_manager.PlaySFX(audio_manager.coin);
+            Destroy(other.gameObject);
+            
+        }
     }
 }
 

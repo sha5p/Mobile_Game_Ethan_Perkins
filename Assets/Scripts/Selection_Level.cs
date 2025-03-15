@@ -27,11 +27,13 @@ public class Selection_Level : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
+        Debug.Log("levelObjects array size: " + levelObjects.Length);
         //PlayerPrefs.DeleteAll();
         UnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel",0);
+        
         for(int i = 0; i < levelObjects.Length; i++)
         {
-            Debug.Log(UnlockedLevel);
+            Debug.Log(UnlockedLevel+ "This is the i" +i);
             if (UnlockedLevel >=i)
             {
                 levelObjects[i].levelButton.interactable = true;
