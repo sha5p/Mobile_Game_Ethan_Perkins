@@ -20,6 +20,7 @@ public class Level_Manager : MonoBehaviour
 
     [SerializeField] private GameObject music_settings;
 
+    [SerializeField] private GameObject cosmetics;
     Audio_Manager audio_manager;
 
 
