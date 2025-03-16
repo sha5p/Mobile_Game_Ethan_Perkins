@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class color_change : MonoBehaviour
 {
-    public Color newColor;
+    public Color newColor = Color.white;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,8 +65,14 @@ public class color_change : MonoBehaviour
                 renderer.material.color = newColor;
             }
         }
+        
+        else if (colorName == null)
+        {
+            PlayerPrefs.SetString("MyColor", "white");
+        }
         else
         {
+            Debug.Log(colorName+"Colour name");
             string colorString = PlayerPrefs.GetString("MyColor");
 
             Debug.Log(colorName + "This shold not be 00000");

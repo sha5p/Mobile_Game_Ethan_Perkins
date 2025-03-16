@@ -29,6 +29,9 @@ public class Cosmetics_Scripts : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        button_player_skin.interactable = false;
+        colorDropdown.interactable = false;
+        swipeDropdown.interactable = false;
         for (int i = 0; i <= 12; i++) // Loop from scene "0" to "12"
         {
             int sceneCoins = PlayerPrefs.GetInt(i.ToString() + "CollectedCoins", 0); // Get the coins for this scene
@@ -38,18 +41,20 @@ public class Cosmetics_Scripts : MonoBehaviour
         coinTotal.text = "Total Coins: " + coinCount.ToString();
         skin_cosmetics.SetActive(false);
         string colorName = PlayerPrefs.GetString("MyColor");
-        
-        if (coinCount < 1)
+
+        Debug.Log(coinCount+"This is coin count");
+        if (coinCount >= 2)
         {
-            colorDropdown.interactable = false;
+            colorDropdown.interactable = true;
         }
-        if (coinCount < 3)
-            {
-            swipeDropdown.interactable = false;
-            }
-        if (coinCount < 6)
+
+        if (coinCount >= 4)
         {
-            button_player_skin.interactable = false;
+            swipeDropdown.interactable = true;
+        }
+        if (coinCount >= 6)
+        {
+            button_player_skin.interactable = true;
         }
         if (string.IsNullOrEmpty(colorName))
         {

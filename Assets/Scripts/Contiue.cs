@@ -53,6 +53,7 @@ public class Contiue : MonoBehaviour
     {
         audio_manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
         Time.timeScale = 1f;
+
         SceneManager.LoadScene("Main_Menu");
     }
     public void nextlevel()

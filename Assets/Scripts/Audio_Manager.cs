@@ -32,6 +32,20 @@ public class Audio_Manager : MonoBehaviour
         musicSource.clip = music;
         musicSource.Play();
     }
+    void Update()
+    {
+        if (musicSource.isPlaying == false) // Check if music is not playing
+        {
+            PlayMusic(); // Restart the music
+        }
+    }
+
+    void PlayMusic()
+    {
+        musicSource.clip = music;
+        musicSource.Play();
+    }
+
 
     public void PlaySFX(AudioClip clip)
     {

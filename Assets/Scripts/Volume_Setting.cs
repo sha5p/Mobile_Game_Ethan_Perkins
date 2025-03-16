@@ -32,8 +32,21 @@ public class Volume_Setting : MonoBehaviour
     [SerializeField] private GameObject pause;
 
     Audio_Manager audio_manager;
+
+    public void newSave()
+    {
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetString("MyColor", "white");
+        PlayerPrefs.SetString("MyColor_swipe", "white");
+        SceneManager.LoadScene(currentSceneName);
+
+    }
     private void Awake()
     {
+
         audio_manager = GameObject.FindGameObjectWithTag("Audio").GetComponent<Audio_Manager>();
 
     }

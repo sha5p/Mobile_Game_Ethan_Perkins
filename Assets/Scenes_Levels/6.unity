@@ -1122,7 +1122,7 @@ MonoBehaviour:
   finishLine: {fileID: 1889259189}
   camera_Follow: {fileID: 519420033}
   player_Script: {fileID: 4387735792411091053}
-  Coin_Gameobject: {fileID: 0}
+  Coin_Gameobject: {fileID: 1879241949}
   player: {fileID: 4624474839094521289}
   coinCount: 0
 --- !u!4 &197755362
@@ -6368,6 +6368,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a08822bb27c553045a8666eb6c37f125, type: 3}
+--- !u!1 &1879241949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2466953616858091550, guid: a08822bb27c553045a8666eb6c37f125, type: 3}
+  m_PrefabInstance: {fileID: 1879241948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1889259189
 GameObject:
   m_ObjectHideFlags: 0
