@@ -5,12 +5,14 @@ public class LineCutter : MonoBehaviour
 {
     Rigidbody2D rigidbody2D;
     CircleCollider2D circleCollider;
+    public Color newColor = Color.white;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
         rigidbody2D = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
+        color_Change_func();
     }
 
     // Update is called once per frame
@@ -35,6 +37,33 @@ public class LineCutter : MonoBehaviour
             
             rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
         }
-
+        
+    }
+    public void color_Change_func()
+    {
+        TrailRenderer trailRenderer = GetComponent<TrailRenderer>();
+        string colorName = PlayerPrefs.GetString("MyColor_swipe");
+        if (colorName == "red")
+        {
+            newColor = Color.red;
+        }
+        else if (colorName == "blue")
+        {
+            newColor = Color.blue;
+        }
+        else if (colorName == "green")
+        {
+            newColor = Color.green;
+        }
+        else if (colorName == "white")
+        {
+            newColor = Color.white;
+        }
+        else if (colorName == "pink")
+        {
+            newColor = new Color(1, 0, 0.8f, 1);
+        }
+        trailRenderer.startColor = newColor;
+        trailRenderer.endColor = newColor;
     }
 }

@@ -31,7 +31,7 @@ public class Level_Manager : MonoBehaviour
     }
     private void Start()
     {
-        
+        cosmetics.SetActive(false);
     }
     public void OnClickLevel()
     {
@@ -43,7 +43,9 @@ public class Level_Manager : MonoBehaviour
         music_settings.SetActive(false);
         main_menu.SetActive(false);
         levels.SetActive(true);
-        
+        cosmetics.SetActive(false);
+
+
     }
     private void ChangeScene()
     {
@@ -51,6 +53,7 @@ public class Level_Manager : MonoBehaviour
     }
     public void music_sett()
     {
+        cosmetics.SetActive(false);
         audio_manager.PlaySFX(audio_manager.ClickSound);
         swiper.SetActive(false);
         stickman.SetActive(false);
@@ -68,4 +71,14 @@ public class Level_Manager : MonoBehaviour
         //contiue.onClick.AddListener(ChangeScene);
         Canvas.gameObject.SetActive(true);
     }
+    public void _cosmetics()
+    {
+        swiper.SetActive(false);
+        audio_manager.PlaySFX(audio_manager.ClickSound);
+        main_menu.SetActive(false);
+        levels.SetActive(false);
+        music_settings.SetActive(false);
+        cosmetics.SetActive(true);
+    }
+
 }
