@@ -1600,9 +1600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Contiue
-
-'
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0437da9f99a30fc41a343e57613ba290, type: 2}
   m_sharedMaterial: {fileID: -6436556810696775902, guid: 0437da9f99a30fc41a343e57613ba290, type: 2}
